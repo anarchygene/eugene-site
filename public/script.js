@@ -2,6 +2,25 @@ const repositoriesEndpoint = "https://api.github.com/users/anarchygene/repos?sor
 const repoGrid = document.querySelector("#repo-grid");
 const repoStatus = document.querySelector("#repo-status");
 const currentYear = document.querySelector("#current-year");
+const themeToggle = document.querySelector("#theme-toggle");
+
+function updateThemeToggle() {
+  const darkModeEnabled = document.body.classList.contains("dark");
+  themeToggle.setAttribute("aria-pressed", String(darkModeEnabled));
+  themeToggle.textContent = darkModeEnabled ? "Light mode" : "Dark mode";
+}
+
+if (sessionStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+}
+
+updateThemeToggle();
+
+themeToggle.addEventListener("click", () => {
+  const darkModeEnabled = document.body.classList.toggle("dark");
+  sessionStorage.setItem("theme", darkModeEnabled ? "dark" : "light");
+  updateThemeToggle();
+});
 
 currentYear.textContent = new Date().getFullYear();
 

@@ -8,6 +8,7 @@
   --accent-dark: #055e4e;
   --dark: #14241f;
   --dark-soft: #b7c7c1;
+  --on-dark: #ffffff;
   --line: #ccd5d0;
   --radius: 1.25rem;
   --shadow: 0 1.25rem 3.5rem rgb(23 32 29 / 10%);
@@ -34,6 +35,18 @@ body {
   font-size: 1rem;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
+}
+
+body.dark {
+  --ink: #eef4f1;
+  --ink-soft: #b7c7c1;
+  --paper: #0e1714;
+  --surface: #18251f;
+  --tint: #1c2d27;
+  --accent: #66cfb3;
+  --accent-dark: #8ee2cb;
+  --line: #40504a;
+  --shadow: 0 1.25rem 3.5rem rgb(0 0 0 / 28%);
 }
 
 a {
@@ -90,7 +103,7 @@ h3 {
   left: 0.75rem;
   padding: 0.75rem 1rem;
   transform: translateY(-200%);
-  color: var(--surface);
+  color: var(--on-dark);
   background: var(--dark);
   border-radius: 0.5rem;
 }
@@ -106,6 +119,11 @@ h3 {
   border-bottom: 1px solid rgb(204 213 208 / 70%);
   background: rgb(246 244 238 / 92%);
   backdrop-filter: blur(0.75rem);
+}
+
+body.dark .site-header {
+  border-bottom-color: rgb(64 80 74 / 70%);
+  background: rgb(14 23 20 / 92%);
 }
 
 .nav-inner {
@@ -149,6 +167,23 @@ h3 {
 }
 
 .nav-list a:hover {
+  color: var(--accent-dark);
+}
+
+.theme-toggle {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  background: var(--surface);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
   color: var(--accent-dark);
 }
 
@@ -413,7 +448,7 @@ h3 {
 }
 
 .section-dark {
-  color: var(--surface);
+  color: var(--on-dark);
   background: var(--dark);
 }
 
